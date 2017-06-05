@@ -6,7 +6,7 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-public class Restaurant implements Commented{
+public class Restaurant implements Commenting{
 	private String name;
 	private long openingDate;
 	private Location location;

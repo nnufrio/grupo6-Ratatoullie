@@ -5,7 +5,7 @@ package ar.edu.unlp.lifia.model;
  * @author NATA
  *
  */
-public interface Commented {
+public interface Commenting {
 	public void comment(Comment comment);
 	public Location getLocation();
 }

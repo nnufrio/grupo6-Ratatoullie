@@ -4,11 +4,11 @@ public class Comment {
 	private User user;
 	private String text;
 	private long date;
-	private Commented commented; 
+	private Commenting commented; 
 	private Vote vote;
 	public Comment() {
 	}
-	public Comment(User user, String text, long date, Commented commented, Vote vote) {
+	public Comment(User user, String text, long date, Commenting commented, Vote vote) {
 		setCommented(commented);
 		setDate(date);
 		setText(text);
@@ -27,10 +27,10 @@ public class Comment {
 	public void setDate(long date) {
 		this.date = date;
 	}
-	public Commented getCommented() {
+	public Commenting getCommented() {
 		return commented;
 	}
-	public void setCommented(Commented commented) {
+	public void setCommented(Commenting commented) {
 		this.commented = commented;
 	}
 	public Vote getVote() {

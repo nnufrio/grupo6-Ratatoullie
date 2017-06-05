@@ -3,7 +3,7 @@ package ar.edu.unlp.lifia.model;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Menu implements Commented{
+public class Menu implements Commenting{
 	private Restaurant restaurant;
 	private String text;
 	private long startDate;
