@@ -27,7 +27,7 @@ public class Test1 {
 	}
 	
 	@Test
-	public void userStopFollowing(){//agregado
+	public void userStopFollowing(){
 		user1.follow(user2);
 		user1.stopFollowing(user2);
 		Assert.assertFalse(user1.getFollowings().contains(user2));
