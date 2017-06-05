@@ -33,4 +33,6 @@ public class Test1 {
 		Assert.assertFalse(user1.getFollowings().contains(user2));
 		Assert.assertFalse(user2.getFollowers().contains(user1));
 	}
+	
+	
 }
