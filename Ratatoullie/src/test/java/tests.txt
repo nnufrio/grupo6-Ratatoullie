@@ -1,0 +1,16 @@
+comentar: comentario normal y comentario de user responsable(fallido por localizacion y valido) ( menu y restaurante)
+
+stopFollowing(User) 
+
+recommend(Menu menu, User user, String text, long date)
+recommendFollowers(Menu menu, String text, long date)
+
+ranking de usuarios validar cambio de rankin segun cantidad de msjs
+
+recepcion de notificaciones de los usuario responsables segun algun ranking bloqueado
+
+categoria de los restaurantes validar cambio de categoria segun cantidad de msjs
+
+todos los metodos de Ratatoullie
+
+orden del los listados segun beneficios
