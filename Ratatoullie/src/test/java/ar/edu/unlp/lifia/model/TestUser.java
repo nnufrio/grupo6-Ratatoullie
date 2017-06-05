@@ -24,7 +24,7 @@ public class TestUser {
 	@Test
 	public void testCommentUserNormal(){
 		//Assert.assertTrue(condition);
-	}
+	}///
 	
 	@Test
 	public void testCommentUserResponsive(){
