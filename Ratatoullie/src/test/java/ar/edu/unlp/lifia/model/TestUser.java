@@ -17,8 +17,8 @@ public class TestUser {
 	
 	@Before
 	public void before(){
-		user1= new User("User1", new Location("2", "3"));
-		user2= new User("User3", new Location("2", "3"));
+		user1= new User("User1", new Location(2, 3));
+		user2= new User("User3", new Location(2, 3));
 	}
 	
 	@Test

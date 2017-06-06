@@ -67,6 +67,7 @@ public class Restaurant implements Commenting{
 	public void comment(Comment comment) {
 		getComments().add(comment);
 		getOwner().notify(comment);
+		updateCategory();
 	}
 	public List<Comment> getComments() {
 		return comments;
