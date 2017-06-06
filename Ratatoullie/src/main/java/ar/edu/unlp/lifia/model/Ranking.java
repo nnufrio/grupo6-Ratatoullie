@@ -7,4 +7,5 @@ public abstract class Ranking {
 	public boolean equals(Object obj) {		
 		return obj.getClass().equals(getClass());
 	}
+	public abstract String getName();
 }

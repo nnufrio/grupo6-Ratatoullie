@@ -96,5 +96,37 @@ public class Restaurant implements Commenting{
 	}
 	public void setOwner(UserResponsible owner) {
 		this.owner = owner;
-	}	
+	}
+	/**
+	 * Lista todos los {@link Comment} de un {@link Restaurant} incluyendo los de sus {@link Menu}
+	 * @return
+	 */
+	public List<Comment> getAllComments(){
+		ArrayList<Comment> comments= (ArrayList<Comment>) getComments();
+		for (Menu menu:getMenus()) {
+			comments.addAll(menu.getComments());
+		}
+		return comments;
+	}
+	/**
+	 * Actualiza la {@link Category} del {@link Restaurant}
+	 */
+	public void updateCategory() {
+		getCategory().update(this);
+		
+	}
+	/**
+	 * Lista todos los {@link Comment} de un {@link Restaurant} incluyendo los de sus {@link Menu} en un rango de fechas
+	 * @return
+	 */
+	public List<Comment> getAllComments(long initialDate,long finalDate){
+		ArrayList<Comment> comments= new ArrayList<Comment>();
+		for (Comment comment : getAllComments()) {
+			if(comment.getDate()>=initialDate && comment.getDate()<=finalDate){
+				comments.add(comment);
+			}
+		}
+		return comments;
+	}
+	
 }

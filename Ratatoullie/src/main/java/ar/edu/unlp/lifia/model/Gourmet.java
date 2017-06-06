@@ -5,7 +5,7 @@ package ar.edu.unlp.lifia.model;
  *
  */
 public class Gourmet extends Ranking {
-
+	public static final String name= "GOURMET";
 	@Override
 	public void update(User user) {
 		if(user.myCommentsSize()<=40){
@@ -13,5 +13,8 @@ public class Gourmet extends Ranking {
 			user.updateRating();
 		}
 	}
-
+	@Override
+	public String getName(){
+		return name;
+	}
 }

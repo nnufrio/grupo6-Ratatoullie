@@ -5,24 +5,24 @@ package ar.edu.unlp.lifia.model;
  *
  */
 public class Location {
-	private String latitude;
-	private String longitude;
+	private double latitude;
+	private double longitude;
 	public Location() {	
 	}
-	public Location(String latitude,String longitude) {
+	public Location(double latitude,double longitude) {
 		setLatitude(latitude);
 		setLongitude(longitude);
 	}
-	public String getLatitude() {
+	public double getLatitude() {
 		return latitude;
 	}
-	public void setLatitude(String latitude) {
+	public void setLatitude(double latitude) {
 		this.latitude = latitude;
 	}
-	public String getLongitude() {
+	public double getLongitude() {
 		return longitude;
 	}
-	public void setLongitude(String longitude) {
+	public void setLongitude(double longitude) {
 		this.longitude = longitude;
 	}
 	/**
@@ -30,9 +30,19 @@ public class Location {
 	 * @param location
 	 * @return
 	 */
-	public int Distance(Location location){
-		//TODO implementar 
-		return 0;
+	public double getDistance(Location location){
+		 //double radioTierra = 3958.75;//en millas  
+        double earthRadio = 6371;//en kilómetros  
+        double latitude = Math.toRadians(location.getLatitude() - getLatitude());  
+        double longitude = Math.toRadians(location.getLongitude() - getLongitude());  
+        double sindLatitude = Math.sin(latitude / 2);  
+        double sindLongitude = Math.sin(longitude / 2);  
+        double va1 = Math.pow(sindLatitude, 2) + Math.pow(sindLongitude, 2)  
+                * Math.cos(Math.toRadians(getLatitude())) * Math.cos(Math.toRadians(location.getLatitude()));  
+        double va2 = 2 * Math.atan2(Math.sqrt(va1), Math.sqrt(1 - va1));  
+        double distance = earthRadio * va2;  
+   
+        return distance;  		
 		
 	}
 }

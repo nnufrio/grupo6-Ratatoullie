@@ -5,7 +5,7 @@ package ar.edu.unlp.lifia.model;
  *
  */
 public class Commensal extends Ranking {
-
+	public static final String name= "COMMENSAL";
 	@Override
 	public void update(User user) {
 		int size=user.myCommentsSize();
@@ -20,5 +20,8 @@ public class Commensal extends Ranking {
 		}
 		
 	}
-
+	@Override
+	public String getName(){
+		return name;
+	}
 }
