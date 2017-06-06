@@ -18,10 +18,22 @@ public class Test1 {
 		user1= new User("User1", new Location("2", "3"));
 		user2= new User("User3", new Location("2", "3"));
 	}
+	
 	@Test
 	public void userFollow(){		
 		user1.follow(user2);
 		Assert.assertTrue(user1.getFollowings().contains(user2));
 		Assert.assertTrue(user2.getFollowers().contains(user1));
 	}
+	
+	@Test
+	public void userStopFollowing(){
+		//added
+		user1.follow(user2);
+		user1.stopFollowing(user2);
+		Assert.assertFalse(user1.getFollowings().contains(user2));
+		Assert.assertFalse(user2.getFollowers().contains(user1));
+	}
+	
+	
 }
