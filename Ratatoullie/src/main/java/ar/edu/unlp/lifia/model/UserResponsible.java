@@ -62,6 +62,10 @@ public class UserResponsible extends User {
 	public void setBlockedRanking(Set<Ranking> blockedRanking) {
 		this.blockedRanking = blockedRanking;
 	}
+	/**
+	 * Agraga un {@link Ranking} para que sea blodeado en la recepcion de mensajes
+	 * @param ranking
+	 */
 	public void addBlockedRanking(Ranking ranking){
 		getBlockedRanking().add(ranking);
 	}
