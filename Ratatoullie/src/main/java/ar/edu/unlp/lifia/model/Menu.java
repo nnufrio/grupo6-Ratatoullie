@@ -47,6 +47,7 @@ public class Menu implements Commenting{
 	@Override
 	public void comment(Comment comment) {
 		getComments().add(comment);
+		getRestaurant().getOwner().notify(comment);
 		getRestaurant().updateCategory();
 	}
 	@Override

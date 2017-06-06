@@ -3,11 +3,13 @@ package ar.edu.unlp.lifia.model;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 
 public class Ratatoullie {
-	private static final Ratatoullie ratatoullie= new Ratatoullie();
+	private static Ratatoullie ratatoullie;
 	private List<User> users;
 	private List<Restaurant> restaurants;
 	public List<User> getUsers() {
@@ -23,11 +25,19 @@ public class Ratatoullie {
 		this.restaurants = restaurants;
 	}
 	private Ratatoullie() {
+		setRestaurants(new ArrayList<Restaurant>());
+		setUsers(new ArrayList<User>());
 	}	
+	public static void setRatatoullie(Ratatoullie ratatoullie) {
+		Ratatoullie.ratatoullie = ratatoullie;
+	}
 	private static Ratatoullie getRatatoullie() {
 		return ratatoullie;
 	}
-	public Ratatoullie getInstance(){		
+	public static Ratatoullie getInstance(){		
+		if(getRatatoullie()==null){
+			setRatatoullie(new Ratatoullie());
+		}
 		return getRatatoullie();
 	}
 	/**
@@ -176,5 +186,57 @@ public class Ratatoullie {
 		result.put(new Commensal(), commensal);
 		result.put(new Gourmet(), gourmet);		
 		return result;
+	}
+	/**
+	 * Agrega un {@link User} a la instancia
+	 * @param user no se pueden agregar mas de un {@link User} con el mismo nombre
+	 * @return si fue posible agregarlo
+	 */ 
+	public boolean addUser(User user){		
+		if(!getUsers().contains(user)){
+			getUsers().add(user);
+			return true;
+		}
+		return false;
+	}
+	/**
+	 * Obtiene un {@link User} por su name
+	 * @param name
+	 * @return retorna null si no existe el {@link User}
+	 */
+	public User getUser(String name){
+		for (User user : getUsers()) {
+			if(user.getName().compareTo(name)==0){
+				return user;
+			}
+		}
+		return null;
+	}
+	/**
+	 * Obtiene un {@link Restaurant} por su name
+	 * @param name
+	 * @return retorna null si no existe el {@link Restaurant}
+	 */
+	public Restaurant getRestaurant(String name){
+		for (Restaurant restaurant : getRestaurants()) {
+			if(restaurant.getName().compareTo(name)==0){
+				return restaurant;
+			}
+		}
+		return null;
+	}
+	/**
+	 * Usado por {@link UserResponsible} para agregar un {@link Restaurant} al sistema
+	 * @param restaurant
+	 */
+	protected void addRestaurant(Restaurant restaurant) {
+		getRestaurants().add(restaurant);		
+	}
+	public Set<Restaurant> search(ArrayList<Location> locations, double distance) {
+		HashSet<Restaurant> restaurants = new HashSet<Restaurant>();
+		for (Location location : locations) {
+			restaurants.addAll(search(location, distance));
+		}
+		return restaurants;		
 	}
 }

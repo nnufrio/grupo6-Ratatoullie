@@ -22,8 +22,7 @@ public class User {
 		setMyComments(new ArrayList<Comment>());
 		setName(name);
 		setRanking(new Visitor());
-		setRecommendations(new ArrayList<Recommendation>());
-		
+		setRecommendations(new ArrayList<Recommendation>());		
 	}
 	public String getName() {
 		return name;
@@ -146,5 +145,13 @@ public class User {
 	}
 	public void setRecommendations(List<Recommendation> recommendations) {
 		this.recommendations = recommendations;
-	}		
+	}
+	@Override
+	public boolean equals(Object obj) {
+		return this.getName().compareTo(((User)obj).getName())==0;
+	}
+	@Override
+	public int hashCode() {
+		return getName().hashCode();
+	}
 }

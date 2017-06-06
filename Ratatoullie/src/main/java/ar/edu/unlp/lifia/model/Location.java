@@ -45,4 +45,10 @@ public class Location {
         return distance;  		
 		
 	}
+	@Override
+	public boolean equals(Object obj) {		
+		return getLatitude()==((Location)obj).getLatitude()
+				&& getLongitude()==((Location)obj).getLongitude();
+	}
+	
 }

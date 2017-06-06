@@ -17,9 +17,9 @@ public class Restaurant implements Commenting{
 	private UserResponsible owner;
 	public Restaurant() {
 	}
-	public Restaurant(String name, long openigDate, Location location, Category category, UserResponsible userResponsible) {
+	public Restaurant(String name, long openigDate, Location location, UserResponsible userResponsible) {
 		setBenefices(new HashSet<Benefice>());
-		setCategory(category);
+		setCategory(new Neutral());
 		setComments(new ArrayList<Comment>());
 		setLocation(location);
 		setMenus(new ArrayList<Menu>());
@@ -129,5 +129,12 @@ public class Restaurant implements Commenting{
 		}
 		return comments;
 	}
-	
+	@Override
+	public boolean equals(Object obj) {
+		return this.getName().compareTo(((Restaurant)obj).getName())==0;
+	}
+	@Override
+	public int hashCode() {
+		return getName().hashCode();
+	}
 }
